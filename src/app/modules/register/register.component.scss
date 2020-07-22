@@ -1,0 +1,34 @@
+.footer {
+  text-align: center;
+  p {
+    color: #666666;
+    display: inline-block;
+  }
+  a {
+    display: inline-block;
+    color: #F1BD28;
+    font-weight: bold;
+    text-decoration: underline;
+    &:hover {
+      color: #CC9F23;
+    }
+  }
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+ color:    #BCB4B4;
+ opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+ color:    #BCB4B4;
+ opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color:    #BCB4B4;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+ color:    #BCB4B4;
+}
+::placeholder { /* Most modern browsers support this now. */
+ color:    #BCB4B4;
+}

@@ -1,0 +1,107 @@
+<div class="header pb-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="navbar navbar-expand-lg navbar-light credi-navbar mt-4">
+          <a class="navbar-brand" href="#">
+            <img src="../../assets/logo-crediok.jpg" alt="Crediok" class="img-fluid">
+          </a>
+
+          <button class="navbar-toggler custom-toggler"
+            type="button" data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            (click)="toggleNavbar()">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/']">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/user-list']">Lista de Usuários</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="title my-5">
+        <h2>Lista de Usuários</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-sm-4 offset-sm-8">
+      <div class="search">
+        <div class="input-group md-form form-sm form-2 pl-0">
+          <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Pesquisar" aria-label="Pesquisar" name="search" [(ngModel)]="searchText" autocomplete="off">
+          <div class="input-group-append">
+            <span class="input-group-text amber lighten-3" id="basic-text1"><fa-icon [icon]="faSearch"></fa-icon></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="items my-4">
+    <div class="item mb-2 pb-2">
+      <div class="row">
+        <div class="col-3 col-md-1">
+          <span>Nome</span>
+        </div>
+        <div class="col-md-3 d-none d-md-block">
+          <span>E-mail</span>
+        </div>
+        <div class="col d-none d-md-block">
+          <span>Telefone</span>
+        </div>
+        <div class="col-6 col-md-2">
+          <span>CPF</span>
+        </div>
+        <div class="col-md-1 d-none d-md-block">
+          <span>Sexo</span>
+        </div>
+        <div class="col-2 d-none d-md-block">
+          <span>CEP</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="item mb-2 pb-2" *ngFor="let user of users$ | async | filter:searchText">
+      <div class="row">
+        <div class="col-3 col-md-1">
+          <p>{{ user.name }}</p>
+        </div>
+        <div class="col-md-3 d-none d-md-block">
+          <p>{{ user.email }}</p>
+        </div>
+        <div class="col d-none d-md-block">
+          <p>{{ user.phone }}</p>
+        </div>
+        <div class="col-6 col-md-2">
+          <p>{{ user.cpf }}</p>
+        </div>
+
+        <div class="col-2 more d-block d-md-none"><span>+</span></div>
+
+        <div class="col-md-1 d-none d-md-block">
+          <p>{{ user.gender }}</p>
+        </div>
+        <div class="col-2 d-none d-md-block">
+          <p>{{ user.cep }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
